@@ -1,18 +1,47 @@
+---
+import { fade } from "astro:transitions";
+
+const pageTitle = "About me";
+const identity = {
+    name: "Maikol",
+    age: 33,
+    job: "Developer",
+};
+const skills = ["HTML", "CSS", "JavaScript", "Astro", "Python", "Flask", "SQL"];
+const happy = true;
+const finished = false;
+const goal = 3;
+---
+
 <a href="/">Home</a>
 <a href="/about/">About</a>
 <a href="/blog/">Blog</a>
 
-
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>About me</h1>
-		<h1>My Astro about page!</h1>
-	</body>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Astro</title>
+    </head>
+    <body>
+        <h1>{pageTitle}</h1>
+        <h1>My Astro about page!</h1>
+        <p>
+            I am {identity.name} and I am {identity.age} years old. I am a {
+                identity.job
+            }
+        </p>
+        <p>My skills are:</p>
+        <ul>
+            {skills.map((skill) => <li>{skill}</li>)}
+        </ul>
+
+        {happy && <p>I am happy</p>}
+        {finished && <p>I finished this tutorial!</p>}
+        {goal === 3 ? <p>My goal is to finish in 3 days</p>: <p>My goal is not to finish in 3 days</p>}
+
+
+    </body>
 </html>
