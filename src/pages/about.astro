@@ -1,5 +1,6 @@
 ---
-import { fade } from "astro:transitions";
+import "../styles/global.css";
+import Navigation from '../components/Navigation.astro'
 
 const pageTitle = "About me";
 const identity = {
@@ -11,11 +12,12 @@ const skills = ["HTML", "CSS", "JavaScript", "Astro", "Python", "Flask", "SQL"];
 const happy = true;
 const finished = false;
 const goal = 3;
----
 
-<a href="/">Home</a>
-<a href="/about/">About</a>
-<a href="/blog/">Blog</a>
+// variables for css
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
+---
 
 <html lang="en">
     <head>
@@ -24,8 +26,24 @@ const goal = 3;
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>Astro</title>
+
+        <style define:vars={{ skillColor, fontWeight, textCase }}>
+            h1 {
+                color: red;
+                size: 4rem;
+            }
+
+            li {
+                color: var(--skillColor);
+                font-weight: var(--fontWeight);
+                text-transform: var(--textCase);
+            }
+        </style>
     </head>
     <body>
+      
+        <Navigation />
+
         <h1>{pageTitle}</h1>
         <h1>My Astro about page!</h1>
         <p>
@@ -40,8 +58,12 @@ const goal = 3;
 
         {happy && <p>I am happy</p>}
         {finished && <p>I finished this tutorial!</p>}
-        {goal === 3 ? <p>My goal is to finish in 3 days</p>: <p>My goal is not to finish in 3 days</p>}
-
-
+        {
+            goal === 3 ? (
+                <p>My goal is to finish in 3 days</p>
+            ) : (
+                <p>My goal is not to finish in 3 days</p>
+            )
+        }
     </body>
 </html>
