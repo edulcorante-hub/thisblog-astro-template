@@ -13,7 +13,7 @@ const { pageTitle } = Astro.props; // add the property to the page/component
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
   </head>
-  <body>
+  <body class="bg-teal-100 text-black dark:bg-gray-900 dark:text-white transition-colors duration-200">
     <Header />
     <h1>{pageTitle}</h1>
     <slot />
