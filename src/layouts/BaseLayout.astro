@@ -1,9 +1,10 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
 const { pageTitle } = Astro.props; // add the property to the page/component
 ---
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -17,8 +18,8 @@ const { pageTitle } = Astro.props; // add the property to the page/component
     <h1>{pageTitle}</h1>
     <slot />
     <Footer />
-    <script>
-      import "../scripts/menu.js";
-    </script>
+
+    <script></script>
+    
   </body>
 </html>
