@@ -8,18 +8,18 @@ const { pageTitle } = Astro.props; // add the property to the page/component
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/edulcorante_favicon.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
   </head>
   <body class="bg-teal-100 text-black dark:bg-gray-900 dark:text-white transition-colors duration-200">
+    
+    
     <Header />
     <h1>{pageTitle}</h1>
     <slot />
     <Footer />
 
-    <script></script>
-    
   </body>
 </html>
