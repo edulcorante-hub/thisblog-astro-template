@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Project from "../components/Project.astro";
+import { getCollection } from "astro:content";
+const allProjects = await getCollection("projects");
+const pageTitle = "Projects"
+---
+
+<BaseLayout pageTitle = {pageTitle}>
+ <h3>My recent projects</h3>
+ <ul>
+    {
+      allProjects.map((project) => (
+        <Project url={`/projects/${project.id}/`} title={project.data.title} />
+      ))
+    }
+  </ul>
+</BaseLayout>   
