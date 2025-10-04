@@ -13,13 +13,15 @@ const { pageTitle } = Astro.props; // add the property to the page/component
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
   </head>
-  <body class="bg-teal-100 text-black dark:bg-gray-900 dark:text-white transition-colors duration-200">
-    
-    
-    <Header />
-    <h1>{pageTitle}</h1>
-    <slot />
-    <Footer />
+  <body
+    class="min-h-screen bg-slate-100 text-black dark:bg-slate-800 dark:text-white transition-colors duration-200"
+  >
+    <div class="max-w-5xl mx-auto my-1 p-4 border border-gray-900 dark:border-gray-100">
 
+      <Header />
+      <h1>{pageTitle}</h1>
+      <slot />
+      <Footer />
+    </div>
   </body>
 </html>

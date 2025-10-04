@@ -1,4 +1,7 @@
 ---
-const { platform, username } = Astro.props;
+const { platform, url } = Astro.props;
+
+//https://bsky.app/profile/social.edulcorante.it
 ---
-<a href={`https://www.${platform}.com/${username}`}>{platform}</a>
+
+<a href={url}>{platform}</a>
