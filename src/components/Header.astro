@@ -1,13 +1,25 @@
 ---
 import Navigation from "./Navigation.astro";
 import ThemeIcon from "./ThemeIcon.astro";
-import "../styles/global.css"
-
+import "../styles/global.css";
 ---
 
 <header>
+    <div class="flex justify-between items-center p-2">
+        <img
+            class="h-20 w-auto dark:invert"
+            src="/edulcorante_no_bg.png"
+            alt="Edulcorante logo"
+        />
+        <div>
+            <h1 class="font-bold text-2xl">Edulcorante</h1>
+            <h2><em>Decay, dev, dogs</em></h2>
+        </div>
+
+        <ThemeIcon />
+    </div>
+
     <nav class="mx-2 p-2 border-solid justify-between space-x-4">
         <Navigation />
-        <ThemeIcon />
     </nav>
 </header>
