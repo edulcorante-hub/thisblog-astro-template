@@ -11,7 +11,7 @@ const pageTitle = "Blog";
  <ul>
     {
       allPosts.map((post) => (
-        <BlogPost url={`/posts/${post.id}/`} title={post.data.title} />
+        <BlogPost url={`/posts/${post.id}/`} title={post.data.title} description={post.data.description} date={post.data.pubDate} tags={post.data.tags}/>
       ))
     }
   </ul>
