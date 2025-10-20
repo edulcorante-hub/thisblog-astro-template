@@ -4,22 +4,30 @@ import ThemeIcon from "./ThemeIcon.astro";
 import "../styles/global.css";
 ---
 
-<header>
-    <div class="flex justify-between items-center p-2">
-        <img
-            class="h-20 w-auto dark:invert"
-            src="/edulcorante_no_bg.png"
-            alt="Edulcorante logo"
-        />
-        <div>
-            <h1 class="font-bold text-2xl text-center">Edulcorante</h1>
-            <h2><em>Decay, dev, dogs</em></h2>
-        </div>
+<header >
+  <div class="flex items-center justify-between px-4 py-3">
+    <a href="/" class="flex items-center gap-3">
+      <img
+        src="/edulcorante_no_bg.png"
+        alt="Edulcorante logo"
+        class="h-20 w-auto flex-shrink-0 dark:invert"
+        loading="lazy"
+      />
+      <div class="leading-tight">
+        <h1 class="font-bold text-2xl">Edulcorante</h1>
+        <h2 class="text-sm italic text-gray-600 dark:text-gray-400">Decay, dev, dogs</h2>
+      </div>
+    </a>
 
-        <ThemeIcon />
-    </div>
-
-    <nav class="mx-2 p-2 justify-between space-x-4">
-        <Navigation />
+    <nav class="hidden md:flex items-center space-x-6 font-medium">
+      <Navigation />
     </nav>
+
+    <ThemeIcon />
+  </div>
+
+  <!-- mobile -->
+  <nav class="flex md:hidden justify-center gap-6 py-2 text-sm font-medium border-t border-gray-100 dark:border-gray-700">
+    <Navigation />
+  </nav>
 </header>
