@@ -7,11 +7,11 @@ const pageTitle = "Projects"
 ---
 
 <BaseLayout pageTitle = {pageTitle}>
- <h3>My recent projects</h3>
  <ul>
     {
       allProjects.map((project) => (
-        <Project url={`/projects/${project.id}/`} title={project.data.title} />
+        <Project url={`/projects/${project.id}/`} title={project.data.title} description={project.data.description}
+        stack={project.data.stack} date={project.data.pubDate} tags={project.data.tags} />
       ))
     }
   </ul>
