@@ -6,7 +6,12 @@ const { title, description, url, tags, date } = Astro.props;
     <ul>
     <li><a href={url}>{title}</a></li>
     <li>{description}</li>
-    <li><small>{date.toLocaleString()}</small></li>
+    <li><small>{date.toLocaleDateString('en-EN', {
+            year: 'numeric',
+            month: 'long', 
+            day: '2-digit',
+          })
+        }</small></li>
     <li>#{tags.join(", #")}</li>
     </ul>
 </div>

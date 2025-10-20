@@ -3,19 +3,21 @@
 @font-face {
   font-family: 'Playfair Display Variable';
   src: url('/fonts/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
-  font-weight: 400;
+  font-weight: 100 600;
   font-style: normal;
   font-display: swap;
+  font-size: 2rem;
 }
 
 /* Italic */
 
 @font-face {
   font-family: 'Playfair Display Variable';
-  src: url('/fonts/PlayfairDisplay-VariableFont_wght_Italic.ttf') format('truetype');
-  font-weight: 400;
+  src: url('/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 600;
   font-style: italic;
   font-display: swap;
+  font-size: 2rem;
 }
 
 a {

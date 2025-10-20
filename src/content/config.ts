@@ -22,7 +22,7 @@ const projects = defineCollection({
     loader: glob({ pattern: '**/[^_]*.md', base: "./src/content/projects" }),
     schema: z.object({
       title: z.string(),
-      pubDate: z.date(),
+      pubDate: z.date().default(() => new Date()),
       stack: z.array(z.string()).optional(),
       lang: z.string().optional(), //temporary optional
       description: z.string(),
