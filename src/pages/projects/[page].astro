@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Project from "../../components/Project.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("projects");
+  const postsPerPage = 5;
+  const totalPages = Math.ceil(allPosts.length / postsPerPage);
+
+  // Genera un array di oggetti { params: { page } }
+  return Array.from({ length: totalPages }, (_, i) => ({
+    params: { page: String(i + 1) },
+  }));
+}
+
+const allProjects = await getCollection("projects");
+const postsPerPage = 5;
+
+const currentPage = Number(Astro.params.page);
+const start = (currentPage - 1) * postsPerPage;
+const pageProjects = allProjects.slice(start, start + postsPerPage);
+
+const totalPages = Math.ceil(allProjects.length / postsPerPage);
+
+---
+<BaseLayout title="Blog">
+<ul>
+  {pageProjects.map(post => (
+    <Project
+      url={`/posts/${post.id}/`}
+      title={post.data.title}
+      description={post.data.description}
+      date={post.data.pubDate}
+      tags={post.data.tags}
+    />
+  ))}
+</ul>
+<nav class="flex justify-center gap-2 mt-6">
+  {currentPage > 1 && (
+    <a href={`/projects/${currentPage - 1}/`} class="px-3 py-1 ...">← Prev</a>
+  )}
+
+  {Array.from({ length: totalPages }).map((_, i) => {
+    const n = i + 1;
+    const isActive = n === currentPage;
+    return (
+      <a href={`/projects/${n}/`} class={`px-3 py-1 ... ${isActive ? 'font-bold' : ''}`}>{n}</a>
+    );
+  })}
+
+  {currentPage < totalPages && (
+    <a href={`/projects/${currentPage + 1}/`} class="px-3 py-1 ...">Next →</a>
+  )}
+</nav>
