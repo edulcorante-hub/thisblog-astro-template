@@ -1,6 +1,7 @@
 ---
 const { frontmatter } = Astro.props; // assign the frontmatter to a variable "frontmatter" to access the property of Astro.props
 import BaseLayout from "./BaseLayout.astro";
+
 ---
 
  <!-- pass the prop title to the BaseLayout component -->
@@ -12,9 +13,16 @@ import BaseLayout from "./BaseLayout.astro";
   
   <div class="tags">
     {frontmatter.tags.map((tag: string) => (
-      <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+      <p class="tag"><a href={`/tags/${tag}/1/`}>{tag}</a></p>
     ))}
   </div>
+
+  <div class="tags">
+  {frontmatter.tags.map((tag: string) => {
+    console.log("🔗 Link generato per tag:", `/tags/${tag}/1/`);
+    return <p class="tag"><a href={`/tags/${tag}/1/`}>{tag}</a></p>;
+  })}
+</div>
   
   <slot />
 </BaseLayout>

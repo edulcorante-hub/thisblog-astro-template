@@ -1,0 +1,105 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BlogPost from '../../../components/BlogPost.astro';
+
+export async function getStaticPaths() {
+  const postsPerPage = 5;
+  const allPosts = await getCollection('blog');
+  const allTags = [...new Set(allPosts.flatMap(post => post.data.tags ?? []))];
+
+  const paths = [];
+
+  for (const tag of allTags) {
+    const taggedPosts = allPosts.filter(post => post.data.tags?.includes(tag));
+    const totalPages = Math.ceil(taggedPosts.length / postsPerPage);
+
+    for (let page = 1; page <= totalPages; page++) {
+      const start = (page - 1) * postsPerPage;
+      const end = start + postsPerPage;
+
+      paths.push({
+        params: { tag, page: page.toString() },
+        props: {
+          tag,
+          posts: taggedPosts.slice(start, end),
+          currentPage: page,
+          totalPages
+        }
+      });
+    }
+  }
+
+  return paths;
+}
+
+// Props
+const { tag, posts, currentPage, totalPages } = Astro.props;
+
+// Funzione per generare i numeri di pagina con "…"
+function generatePages(current: number, total: number) {
+  const pages: (number | string)[] = [];
+  
+  for (let i = 1; i <= total; i++) {
+    if (
+      i === 1 || i === total ||            // sempre primo e ultimo
+      (i >= current - 2 && i <= current + 2) // due prima e due dopo
+    ) {
+      pages.push(i);
+    } else if (pages[pages.length - 1] !== '…') {
+      pages.push('…'); // inserisce solo una volta i puntini
+    }
+  }
+  
+  return pages;
+}
+
+const pageNumbers = generatePages(currentPage, totalPages);
+---
+
+<BaseLayout pageTitle={`#${tag}`}>
+  <h2 class="mb-4">Articoli taggati con <span class="font-bold">{tag}</span></h2>
+
+  <ul>
+    {posts.map(post => (
+      <BlogPost
+        url={`/posts/${post.id}/`}
+        title={post.data.title}
+        description={post.data.description}
+        date={post.data.pubDate}
+        tags={post.data.tags}
+      />
+    ))}
+  </ul>
+
+  {totalPages > 1 && (
+    <nav class="mt-8 flex justify-center items-center gap-2 text-sm text-neutral-400">
+      {currentPage > 1 ? (
+        <a href={`/tags/${tag}/${currentPage - 1}/`} class="hover:text-neutral-100">← Prev</a>
+      ) : (
+        <span class="opacity-40 select-none">← Prev</span>
+      )}
+
+      {pageNumbers.map((p) => 
+        typeof p === 'number' ? (
+          <a
+            href={`/tags/${tag}/${p}/`}
+            class={`px-2 py-1 rounded ${
+              p === currentPage ? 'font-semibold text-neutral-100' : 'hover:text-neutral-100'
+            }`}
+          >
+            {p}
+          </a>
+        ) : (
+          <span class="px-2">…</span>
+        )
+      )}
+
+      {currentPage < totalPages ? (
+        <a href={`/tags/${tag}/${currentPage + 1}/`} class="hover:text-neutral-100">Next →</a>
+      ) : (
+        <span class="opacity-40 select-none">Next →</span>
+      )}
+    </nav>
+  )}
+</BaseLayout>

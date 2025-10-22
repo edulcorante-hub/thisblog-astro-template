@@ -33,7 +33,7 @@ const projects = defineCollection({
       }),
       link: z.string().optional(), //temporary optional
       github: z.string().optional(), //temporary optional
-      tags: z.array(z.string())
+      categories: z.array(z.string())
     })
 });
 // Esporta un singolo oggetto `collections` per registrare le tue raccolte

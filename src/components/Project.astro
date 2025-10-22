@@ -1,5 +1,5 @@
 ---
- const { title, url, stack, description, date, tags} = Astro.props;
+ const { title, url, stack, description, date, category} = Astro.props;
 ---
 
 <div class="border border-zinc-400 dark:border-zinc-600 my-2 p-2 rounded-md bg-slate-300/50 dark:bg-zinc-900/50">
@@ -8,6 +8,6 @@
     <li>{description}</li>
     <li>{stack}</li></li>
     <li><small>{date.toLocaleString()}</small></li>
-    <li>#{tags.join(" #")}</li>
+    <li>#{category.join(" #")}</li>
     </ul>
 </div>

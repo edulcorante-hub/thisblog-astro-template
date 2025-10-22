@@ -4,9 +4,9 @@ import Project from "../../components/Project.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection("projects");
-  const postsPerPage = 5;
-  const totalPages = Math.ceil(allPosts.length / postsPerPage);
+  const allProjects = await getCollection("projects");
+  const projectsPerPage = 5;
+  const totalPages = Math.ceil(allProjects.length / projectsPerPage);
 
   // Genera un array di oggetti { params: { page } }
   return Array.from({ length: totalPages }, (_, i) => ({
@@ -15,24 +15,25 @@ export async function getStaticPaths() {
 }
 
 const allProjects = await getCollection("projects");
-const postsPerPage = 5;
+const projectsPerPage = 5;
 
 const currentPage = Number(Astro.params.page);
-const start = (currentPage - 1) * postsPerPage;
-const pageProjects = allProjects.slice(start, start + postsPerPage);
+const start = (currentPage - 1) * projectsPerPage;
+const pageProjects = allProjects.slice(start, start + projectsPerPage);
 
-const totalPages = Math.ceil(allProjects.length / postsPerPage);
+const totalPages = Math.ceil(allProjects.length / projectsPerPage);
 
 ---
 <BaseLayout title="Blog">
 <ul>
-  {pageProjects.map(post => (
+  {pageProjects.map(project => (
     <Project
-      url={`/posts/${post.id}/`}
-      title={post.data.title}
-      description={post.data.description}
-      date={post.data.pubDate}
-      tags={post.data.tags}
+      url={`/projects/${project.id}/`}
+      title={project.data.title}
+      description={project.data.description}
+      date={project.data.pubDate}
+      stack={project.data.stack}
+      category={project.data.categories}
     />
   ))}
 </ul>

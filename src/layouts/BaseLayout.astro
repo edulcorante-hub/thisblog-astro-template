@@ -20,7 +20,7 @@ const { pageTitle } = Astro.props; // add the property to the page/component
       class="bg-slate-100/50 dark:bg-zinc-900/50 max-w-5xl mx-auto my-1 p-4 shadow-lg border-gray-900 dark:border-gray-100 rounded-sm"
     >
       <Header />
-      <h1>{pageTitle}</h1>
+      <h1 class="text-lg font-bold">{pageTitle}</h1>
       <slot />
       <Footer />
     </div>
