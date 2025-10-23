@@ -1,13 +1,17 @@
 ---
- const { title, url, stack, description, date, category} = Astro.props;
+const { title, url, stack, description, date, categories } = Astro.props;
 ---
 
-<div class="border border-zinc-400 dark:border-zinc-600 my-2 p-2 rounded-md bg-slate-300/50 dark:bg-zinc-900/50">
+<div
+    class="border border-zinc-400 dark:border-zinc-600 my-2 p-2 rounded-md bg-slate-300/50 dark:bg-zinc-900/50"
+>
     <ul>
-    <li><a href={url}>{title}</a></li>
-    <li>{description}</li>
-    <li>{stack}</li></li>
-    <li><small>{date.toLocaleString()}</small></li>
-    <li>#{category.join(" #")}</li>
+        <li><a href={url}>{title}</a></li>
+        <li>{description}</li>
+        <li>{stack}</li>
     </ul>
+    <li><small>{date.toLocaleString()}</small></li>
+    <li>
+        #{(categories).join(" #")}
+    </li>
 </div>

@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import BlogPost from "./BlogPost.astro";
+
+const allPosts = await getCollection("blog");
+
+const pinnedPosts = allPosts
+  .filter((post) => post.data.tags?.includes("pinned"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 2);
+
+---
+
+<section class="pinned-post my-3">
+    <h2 class="text-l font-semibold mb-1">
+        <img src="pin-svgrepo-com.svg" alt="pin icon" class="w-4 h-4 inline-block mr-2 color-black dark:invert">
+        Pinned posts
+    </h2>
+    <ul class="grid gap-3 md:grid-cols-2">
+        {pinnedPosts.map((post)=>(
+            <BlogPost 
+            url={`/posts/$post.id/`}
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.pubDate}
+            tags={post.data.tags}
+            />
+        ))}
+    </ul>
+
+</section>

@@ -1,4 +1,8 @@
 ---
+import LastProject from "../components/LastProject.astro";
+import PinnedPost from "../components/PinnedPost.astro";
+import RandomQuote from "../components/RandomQuote.astro";
+import RecentPosts from "../components/RecentPosts.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Edulcorante";
 ---
@@ -10,4 +14,10 @@ const pageTitle = "Edulcorante";
             <p><strong>Example: </strong>Lo zucchero è un edulcorante naturale.</p>
             <p><strong>Translation: </strong>Sugar is a natural sweetener.</p>
         </blockquote>
+
+        <PinnedPost />
+        <RecentPosts />
+        <LastProject />
+        <RandomQuote />
+        
 </BaseLayout>

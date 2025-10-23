@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import Project from "./Project.astro";
+
+const allProjects = await getCollection("projects");
+
+const recentProjects = allProjects
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 1);
+
+---
+
+<section class="justify-center last-project my-6">
+    
+    <h2 class="text-l font-semibold mb-1">
+        <img src="time-sand-svgrepo-com.svg" alt="pin icon" class="w-4 h-4 inline-block mr-2 color-black dark:invert">
+        Latest project
+    </h2>
+    <ul>
+        {recentProjects.map((project)=>(
+            <Project 
+            url={`/projects/$project.id/`}
+            title={project.data.title}
+            description={project.data.description}
+            date={project.data.pubDate}
+            categories={project.data.categories}
+            />
+        ))}
+    </ul>
+
+</section>

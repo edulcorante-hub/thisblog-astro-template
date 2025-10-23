@@ -1,0 +1,30 @@
+---
+const quotes =[
+    "Life is hard. Internet shouldn’t be.",
+    "Make the change happens slowly."
+]
+---
+
+<div id="quote" class="italic text-center my-8 transition-opacity duration-700 opacity-100">{quotes[0]}</div>
+
+<script>
+const quotes =[
+    "Life is hard. Internet shouldn’t be.",
+    "Make the change happens slowly."
+]
+
+  window.addEventListener("load", () => {
+    const quoteElement = document.getElementById("quote");
+    if (!quoteElement) return;
+
+     setInterval(() => {
+    quoteElement.classList.add("opacity-0");
+
+    setTimeout(() => {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      quoteElement.textContent = quotes[randomIndex];
+      quoteElement.classList.remove("opacity-0");
+    }, 700);
+  }, 5000);
+});
+</script>

@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import BlogPost from "./BlogPost.astro";
+
+const allPosts = await getCollection("blog");
+
+const recentPosts = allPosts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 2);
+
+---
+
+<section class="pinned-post my-6">
+       <h2 class="text-l font-semibold mb-1">
+        <img src="time-sand-svgrepo-com.svg" alt="pin icon" class="w-4 h-4 inline-block mr-2 color-black dark:invert">
+        Latest articles
+    </h2>
+    <ul class="grid gap-2 md:grid-cols-2">
+        {recentPosts.map((post)=>(
+            <BlogPost 
+            url={`/posts/$post.id/`}
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.pubDate}
+            tags={post.data.tags}
+            />
+        ))}
+    </ul>
+
+</section>
