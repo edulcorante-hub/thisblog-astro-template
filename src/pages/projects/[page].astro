@@ -25,6 +25,7 @@ const totalPages = Math.ceil(allProjects.length / projectsPerPage);
 
 ---
 <BaseLayout title="Blog">
+    <h1 class="text-xl font-bold">Project list</h1>
 <ul>
   {pageProjects.map(project => (
     <Project

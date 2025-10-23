@@ -19,7 +19,7 @@ const recentProjects = allProjects
     <ul>
         {recentProjects.map((project)=>(
             <Project 
-            url={`/projects/$project.id/`}
+            url={`/projects/${project.id}/`}
             title={project.data.title}
             description={project.data.description}
             date={project.data.pubDate}

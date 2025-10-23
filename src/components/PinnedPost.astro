@@ -19,7 +19,7 @@ const pinnedPosts = allPosts
     <ul class="grid gap-3 md:grid-cols-2">
         {pinnedPosts.map((post)=>(
             <BlogPost 
-            url={`/posts/$post.id/`}
+            url={`/posts/${post.id}/`}
             title={post.data.title}
             description={post.data.description}
             date={post.data.pubDate}
