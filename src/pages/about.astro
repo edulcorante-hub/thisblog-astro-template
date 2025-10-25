@@ -1,8 +1,36 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const pageTitle = "About"
+import ContactForm from "../components/ContactForm";
+const pageTitle = "About";
 ---
 
-<BaseLayout pageTitle = {pageTitle}>
+<BaseLayout pageTitle={pageTitle}>
+  <section
+    class="prose prose-neutral dark:prose-invert mx-auto px-4 my-4 leading-relaxed"
+  >
+    <p>I’m not sure how to define what I do — and maybe that’s the point.</p>
+    <p>
+      I build websites, explore forgotten places, take photos of silence, and
+      spend a lot of time with my dog. Technology fascinates me, but I try to
+      keep a distance from its noise. I like when things are simple, slow, and
+      meaningful.
+    </p>
+    <p>
+      This website is a small collection of projects, thoughts, and experiments.
+      Some posts are about code, others are about ideas, photography, or just
+      small observations from everyday life. It’s not a portfolio in the
+      traditional sense — more like a map of what I’ve learned along the way.
+    </p>
+    <p>
+      I believe curiosity is the most honest form of intelligence. That’s why I
+      keep exploring — both online and out in the real world.
+    </p>
+    <hr class="my-8 opacity-30" />
+    <h2 class="text-xl font-semibold mb-4">Get in touch</h2>
+    <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-6">
+      Feel free to say hi — I read every message.
+    </p>
+  </section>
 
-</BaseLayout>   
+  <ContactForm client:load />
+</BaseLayout>

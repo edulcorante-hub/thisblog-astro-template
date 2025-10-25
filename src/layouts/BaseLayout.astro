@@ -2,7 +2,7 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
-const { pageTitle } = Astro.props; // add the property to the page/component
+const { pageTitle, showTitle = true } = Astro.props; // add the property to the page/component
 ---
 
 <html lang="en">
@@ -17,10 +17,16 @@ const { pageTitle } = Astro.props; // add the property to the page/component
     class="min-h-screen bg-slate-300 text-black dark:bg-zinc-700 dark:text-white transition-colors duration-200"
   >
     <div
-      class="bg-slate-100/50 dark:bg-zinc-900/50 max-w-5xl mx-auto my-1 p-4 shadow-lg border-gray-900 dark:border-gray-100 rounded-sm"
+      class="bg-slate-100/50 dark:bg-zinc-900/50 max-w-4xl mx-auto my-1 p-4 shadow-lg border-gray-900 dark:border-gray-100 rounded-sm"
     >
       <Header />
-      <h1 class="text-lg font-bold">{pageTitle}</h1>
+      {
+        showTitle && (
+          <h1 class="prose prose-neutral text-2xl font-bold ml-4 my-4 dark:prose-invert px-5">
+            {pageTitle}
+          </h1>
+        )
+      }
       <slot />
       <Footer />
     </div>

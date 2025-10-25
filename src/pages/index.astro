@@ -7,17 +7,20 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Edulcorante";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-        <blockquote class="border-l-4 border-gray-400 pl-4 pb-4 mt-2 italic text-gray-700 dark:text-gray-200">
-            <p>noun, masculine</p>
-            <p>sweetener</p>
-            <p><strong>Example: </strong>Lo zucchero è un edulcorante naturale.</p>
-            <p><strong>Translation: </strong>Sugar is a natural sweetener.</p>
-        </blockquote>
+<BaseLayout pageTitle={pageTitle} showTitle={false}>
+    <RandomQuote />
 
-        <PinnedPost />
-        <RecentPosts />
-        <LastProject />
-        <RandomQuote />
-        
+    <blockquote
+        class="border-l-4 border-gray-400 pl-4 pb-4 mt-2 italic text-gray-700 dark:text-gray-200 tracking-wider"
+    >
+        <h2 class="text-lg"><strong>Edulcorante</strong></h2>
+        <p>noun, masculine</p>
+        <p>sweetener</p>
+        <p><strong>Example: </strong>Lo zucchero è un edulcorante naturale.</p>
+        <p><strong>Translation: </strong>Sugar is a natural sweetener.</p>
+    </blockquote>
+
+    <PinnedPost />
+    <RecentPosts />
+    <LastProject />
 </BaseLayout>
