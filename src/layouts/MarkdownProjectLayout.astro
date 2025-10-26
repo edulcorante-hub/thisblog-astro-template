@@ -1,6 +1,7 @@
 ---
 const { frontmatter } = Astro.props; // assign the frontmatter to a variable "frontmatter" to access the property of Astro.props
 import BaseLayout from "./BaseLayout.astro";
+import GoHome from "../components/GoHome.astro";
 const canonical = `https://edulcorante.it${Astro.url.pathname}`;
 ---
 
@@ -10,19 +11,35 @@ const canonical = `https://edulcorante.it${Astro.url.pathname}`;
   description={frontmatter.description}
   image={frontmatter.image?.url ?? "/og-blog.webp"}
   url={canonical}
+  showTitle={true}
 >
-  <p>{frontmatter.pubDate.toLocaleDateString()}</p>
-  <p><em>{frontmatter.description}</em></p>
-  <p>Scritto da: {frontmatter.author}</p>
-  <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+  <div class="prose prose-neutral text-black dark:text-white mx-auto">
+    <img
+      src={frontmatter.image.url}
+      class="rounded-md max-w-full-my-4"
+      alt={frontmatter.image.alt}
+    />
+    <p><em>{frontmatter.description}</em></p>
 
-  <div class="categories">
-    {
-      frontmatter.categories.map((category: string) => (
-        <p class="categories">+{category}+</p>
-      ))
-    }
+    <slot />
+
+    <div
+      class="flex flex-col gap-2 py-1 px-3 my-2 border rounded-md border-zinc-600 dark:border-zinc-400"
+    >
+    <span>Posted on: {frontmatter.pubDate.toLocaleDateString()}</span>
+
+      <span>Author: {frontmatter.author}</span>
+
+    <div class="categories">
+      {
+        frontmatter.categories.map((category: string) => (
+          <span class="categories">{category}, </span>
+        ))
+      }
+    </div>
+    </div>
+
+      
+        <GoHome />
   </div>
-
-  <slot />
 </BaseLayout>
