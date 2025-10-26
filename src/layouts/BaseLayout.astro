@@ -3,7 +3,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import MetaTags from "../components/MetaTags.astro";
 import "../styles/global.css";
-const { pageTitle, showTitle = true } = Astro.props; // add the property to the page/component
+const { pageTitle, description, image, url, showTitle = true } = Astro.props; // add the property to the page/component
 ---
 
 <html lang="en">
@@ -12,7 +12,12 @@ const { pageTitle, showTitle = true } = Astro.props; // add the property to the 
     <link rel="icon" type="image/svg+xml" href="/edulcorante_favicon.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <MetaTags />
+    <MetaTags
+      title={pageTitle}
+      description={description}
+      image={image}
+      url={url}
+    />
     <title>{pageTitle}</title>
   </head>
   <body
