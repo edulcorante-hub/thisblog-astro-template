@@ -8,7 +8,7 @@ const canonical = `https://edulcorante.it${Astro.url.pathname}`;
  <!-- pass the prop title to the BaseLayout component -->
 <BaseLayout pageTitle={frontmatter.title}
 description={frontmatter.description}
-image={frontmatter.image}
+image={frontmatter.image?.url ?? "/og-blog.webp"}
 url={canonical}
 >
 

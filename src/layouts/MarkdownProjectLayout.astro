@@ -8,7 +8,7 @@ const canonical = `https://edulcorante.it${Astro.url.pathname}`;
 <BaseLayout
   pageTitle={frontmatter.title}
   description={frontmatter.description}
-  image={frontmatter.image}
+  image={frontmatter.image?.url ?? "/og-blog.webp"}
   url={canonical}
 >
   <p>{frontmatter.pubDate.toLocaleDateString()}</p>
