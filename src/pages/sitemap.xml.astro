@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const projects = await getCollection('projects');
+
+
+const pages = [
+  { url: '/', changefreq: 'weekly', priority: 1.0 },
+  { url: '/about', changefreq: 'monthly', priority: 0.8 },
+];
+
+// posts
+for (const post of posts) {
+  pages.push({
+    url: `/posts/${post.id}/`,
+    changefreq: 'weekly',
+    priority: 0.9,
+  });
+}
+
+// projects
+for (const project of projects) {
+  pages.push({
+    url: `/projects/${project.id}/`,
+    changefreq: 'monthly',
+    priority: 0.9,
+  });
+}
+
+
+const baseUrl = 'https://edulcorante.it';
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {pages.map((page) => (
+    <url>
+      <loc>{baseUrl + page.url}</loc>
+      <changefreq>{page.changefreq}</changefreq>
+      <priority>{page.priority}</priority>
+    </url>
+  ))}
+</urlset>

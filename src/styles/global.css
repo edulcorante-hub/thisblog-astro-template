@@ -26,6 +26,36 @@ html {
 
 a {
   text-decoration: underline;
+  color: rgb(13, 13, 13);
+}
+
+.dark a {
+  color: whitesmoke;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: black;
+  font-family: 'Playfair Display Variable', serif;
+  font-weight: 600;
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: whitesmoke;
+}
+
+.dark code {
+  background-color: #545454;
+  color: whitesmoke;
 }
 
 :root{
@@ -36,3 +66,21 @@ a:hover{
   text-decoration: overline;
 }
 
+code {
+  color: rgb(13, 13, 13);
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+}
+.dark code {
+  color: whitesmoke;
+}
+
+strong {
+  color: black;
+  font-weight: bolder;
+}
+
+.dark strong {
+  color: whitesmoke;
+
+}

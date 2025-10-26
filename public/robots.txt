@@ -1,0 +1,6 @@
+# Allow all crawlers
+User-agent: *
+Disallow:
+
+# Optional: specific sitemaps
+Sitemap: https://edulcorante.it/sitemap.xml
