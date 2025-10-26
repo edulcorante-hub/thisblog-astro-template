@@ -1,21 +1,28 @@
 ---
 const { frontmatter } = Astro.props; // assign the frontmatter to a variable "frontmatter" to access the property of Astro.props
 import BaseLayout from "./BaseLayout.astro";
+const canonical = `https://edulcorante.it${Astro.url.pathname}`;
 ---
 
- <!-- pass the prop title to the BaseLayout component -->
-<BaseLayout pageTitle={frontmatter.title}>
-    <p>{frontmatter.pubDate.toLocaleDateString()}</p>
-    <p><em>{frontmatter.description}</em></p>
-    <p>Scritto da: {frontmatter.author}</p>
-    <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
-  
+<!-- pass the prop title to the BaseLayout component -->
+<BaseLayout
+  pageTitle={frontmatter.title}
+  description={frontmatter.description}
+  image={frontmatter.image}
+  url={canonical}
+>
+  <p>{frontmatter.pubDate.toLocaleDateString()}</p>
+  <p><em>{frontmatter.description}</em></p>
+  <p>Scritto da: {frontmatter.author}</p>
+  <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+
   <div class="categories">
-    {frontmatter.categories.map((category: string) => (
-      <p class="categories">+{category}+</p>
-    ))}
+    {
+      frontmatter.categories.map((category: string) => (
+        <p class="categories">+{category}+</p>
+      ))
+    }
   </div>
-  
+
   <slot />
 </BaseLayout>
-

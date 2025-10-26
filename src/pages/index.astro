@@ -4,10 +4,17 @@ import PinnedPost from "../components/PinnedPost.astro";
 import RandomQuote from "../components/RandomQuote.astro";
 import RecentPosts from "../components/RecentPosts.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-const pageTitle = "Edulcorante";
+const pageTitle = "Edulcorante — A quiet place for thoughts and code";
+const description = "A journey in nature, technology, and small web components — by Mick.";
+const url = "https://edulcorante.it";
 ---
 
-<BaseLayout pageTitle={pageTitle} showTitle={false}>
+<BaseLayout
+    pageTitle={pageTitle}
+    description={description}
+    url={url}
+    showTitle={false}
+>
     <RandomQuote />
 
     <blockquote
