@@ -12,11 +12,13 @@ categories: ["webdev", "blog", "astro"]
 github: "Soon available on Github"
 ---
 
-# Edulcorante Blog
+## Edulcorante Blog
 
-This project is the creation of my personal blog, a space where I combine technology, exploration, and reflections. Built with **Astro** and **Tailwind CSS**, it serves both as a portfolio and a personal journal.
+This project is this personal blog, a space created to combine technology, exploration, and thoughts.
+Built with **Astro** and **Tailwind CSS**, it serves both as a portfolio and a personal journal.
+*Edulcorante* aims to be a "Container project" for everything that it will come next.
 
-## Goals
+## Aim
 
 - Showcase articles and projects in a clean, readable layout.
 - Blend professional content with personal explorations.
@@ -24,7 +26,7 @@ This project is the creation of my personal blog, a space where I combine techno
 
 ## Features
 
-- **Responsive design** with dark mode support.
+- **Responsive design** with night mode support.
 - **Dynamic components**, like pinned posts, latest projects, and a random quote generator.
 - **SEO & Open Graph integration** for social sharing.
 - **Netlify Forms** for contact functionality.
@@ -32,3 +34,7 @@ This project is the creation of my personal blog, a space where I combine techno
 ## Reflection
 
 Creating this blog has been a mix of coding and design experimentation. It’s both a technical project and a personal space to document thoughts, projects, and inspirations in one unified environment.
+
+### N.B.: THIS PROJECT IS CONSTANTLY UNDER UPDATE
+
+### Last update: 28/10/205
