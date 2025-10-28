@@ -20,26 +20,41 @@ const canonical = `https://edulcorante.it${Astro.url.pathname}`;
       alt={frontmatter.image.alt}
     />
     <p><em>{frontmatter.description}</em></p>
+    <hr class="opacity-50 border-zinc-700 dark:border-zinc-400">
 
     <slot />
 
     <div
       class="flex flex-col gap-2 py-1 px-3 my-2 border rounded-md border-zinc-600 dark:border-zinc-400"
     >
-    <span>Posted on: {frontmatter.pubDate.toLocaleDateString()}</span>
+      <span
+        ><img
+          src="/tool-svgrepo-com.svg"
+          alt="pin icon"
+          class="w-5 h-5 inline-block mr-2 color-black dark:invert !my-0"
+        />Stack: <em>{frontmatter.stack.join(" - ")}</em></span
+      >
+
+      <span
+        ><img
+          src="/github.png"
+          alt="pin icon"
+          class="w-5 h-5 inline-block mr-2 color-black dark:invert !my-0"
+        />Repo: {frontmatter.github}!</span
+      >
+      <span>Posted on: {frontmatter.pubDate.toLocaleDateString()}</span>
 
       <span>Author: {frontmatter.author}</span>
 
-    <div class="categories">
-      {
-        frontmatter.categories.map((category: string) => (
-          <span class="categories">{category}, </span>
-        ))
-      }
-    </div>
+      <div class="categories">  <strong>Categories: </strong>
+        {
+          frontmatter.categories.map((category: string) => (
+            <span class="categories">-{category} </span>
+          ))
+        }
+      </div>
     </div>
 
-      
-        <GoHome />
+    <GoHome />
   </div>
 </BaseLayout>

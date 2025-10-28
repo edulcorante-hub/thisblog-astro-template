@@ -14,7 +14,7 @@ const recentProjects = allProjects
     
     <h2 class="text-l font-semibold mb-1">
         <img src="time-sand-svgrepo-com.svg" alt="pin icon" class="w-4 h-4 inline-block mr-2 color-black dark:invert">
-        Latest project
+        Latest projects
     </h2>
     <ul>
         {recentProjects.map((project)=>(
@@ -23,6 +23,7 @@ const recentProjects = allProjects
             title={project.data.title}
             description={project.data.description}
             date={project.data.pubDate}
+            stack={project.data.stack}
             categories={project.data.categories}
             />
         ))}
