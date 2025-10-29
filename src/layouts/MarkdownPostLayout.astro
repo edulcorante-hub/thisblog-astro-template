@@ -11,7 +11,7 @@ const canonical = `https://edulcorante.it${Astro.url.pathname}`;
   description={frontmatter.description}
   image={frontmatter.image?.url ?? "/og-blog.webp"}
   url={canonical}
-  showTitle={false}
+  showTitle={true}
 >
   <div class="prose prose-neutral text-black dark:text-white mx-auto">
     <img

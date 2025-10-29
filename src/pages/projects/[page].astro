@@ -4,25 +4,31 @@ import Project from "../../components/Project.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const allProjects = await getCollection("projects");
+  // Ordiniamo anche qui, così l'ordine delle pagine resta coerente
+  const allProjects = (await getCollection("projects")).sort(
+    (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+  );
+
   const projectsPerPage = 5;
   const totalPages = Math.ceil(allProjects.length / projectsPerPage);
 
-  // Genera un array di oggetti { params: { page } }
   return Array.from({ length: totalPages }, (_, i) => ({
     params: { page: String(i + 1) },
   }));
 }
 
-const allProjects = await getCollection("projects");
-const projectsPerPage = 5;
+const allProjects = (await getCollection("projects")).sort(
+  (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
 
+
+const projectsPerPage = 5;
 const currentPage = Number(Astro.params.page);
 const start = (currentPage - 1) * projectsPerPage;
 const pageProjects = allProjects.slice(start, start + projectsPerPage);
 
-const totalPages = Math.ceil(allProjects.length / projectsPerPage);
 
+const totalPages = Math.ceil(allProjects.length / projectsPerPage);
 ---
 <BaseLayout title="Blog">
     <h1 class="text-xl font-bold">Project list</h1>
