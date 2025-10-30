@@ -84,3 +84,7 @@ strong {
   color: whitesmoke;
 
 }
+
+.prose a {
+  @apply dark:text-amber-600 hover:underline dark:hover:text-amber-400;
+}

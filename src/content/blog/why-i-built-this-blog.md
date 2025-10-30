@@ -24,7 +24,7 @@ You know, that kind of people who roam around **abandoned places** to take pictu
 Am I still that?
 **For sure I am!**
 
-If you're curious about that, take a look at my urbex blog   <a href="https://edulcoranteperveleni.it" target="_blank" class="dark:text-amber-600 hover:dark:text-amber-400"> Edulcorante per Veleni</a> (in Italian).
+If you're curious about that, take a look at my urbex blog   <a href="https://edulcoranteperveleni.it" target="_blank"> Edulcorante per Veleni</a> (in Italian).
 
 Besides that, I'm a supporter of quiet life and I believe that **mountains** and **forests** represent my real environments.
 
