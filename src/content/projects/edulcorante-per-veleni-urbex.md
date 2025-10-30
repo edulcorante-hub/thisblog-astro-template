@@ -26,9 +26,9 @@ The project now includes a self-developed blog (Python - Flask), a YouTube chann
 
 ## Platforms
 
-- **Edulcorante per Veleni blog:** <a href="https://www.edulcoranteperveleni.it/" target="_blank" >https://www.edulcoranteperveleni.it</a> 
-- **Youtube Channel:** <a href="https://www.youtube.com/@edulcoranteperveleni" target="_blank" >https://www.youtube.com/@edulcoranteperveleni</a>  
-- **Pinterest Page:** <a href="https://it.pinterest.com/edulcoranteperveleni/" target="_blank" >https://it.pinterest.com/edulcoranteperveleni/</a>  
+- [Edulcorante per Veleni blog](https://www.edulcoranteperveleni.it/)
+- [YouTube Channel](https://www.youtube.com/@edulcoranteperveleni)
+- [Pinterest Page](https://it.pinterest.com/edulcoranteperveleni/)
 
 ## Reflection
 
