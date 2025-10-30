@@ -37,4 +37,4 @@ Creating this blog has been a mix of coding and design experimentation. It’s b
 
 ### N.B.: THIS PROJECT IS CONSTANTLY UNDER UPDATE
 
-### Last update: 28/10/205
+*Last update: 28/10/2025*
