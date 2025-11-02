@@ -86,5 +86,9 @@ strong {
 }
 
 .prose a {
-  @apply dark:text-amber-600 hover:underline dark:hover:text-amber-400;
+  @apply text-amber-900 dark:text-amber-600 hover:underline dark:hover:text-amber-400;
+}
+
+.prose blockquote {
+  @apply dark:text-zinc-300;
 }

@@ -4,9 +4,12 @@ import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  return posts.map(post => ({
-    params: { slug: post.id }, props: { post },
-  }));
+  return posts
+    // .filter(post => post.data.lang === "en") // filtro lang temporaneamente rimosso
+    .map(post => ({
+      params: { slug: post.id },
+      props: { post },
+    }));
 }
 
 const { post } = Astro.props;

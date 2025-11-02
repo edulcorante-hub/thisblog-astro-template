@@ -4,7 +4,10 @@ import BlogPost from "./BlogPost.astro";
 
 const allPosts = await getCollection("blog");
 
+// const currentLang = "en";
+
 const pinnedPosts = allPosts
+//   .filter((post) => post.data.lang === currentLang)
   .filter((post) => post.data.tags?.includes("pinned"))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 2);
@@ -12,7 +15,7 @@ const pinnedPosts = allPosts
 ---
 
 <section class="pinned-post my-3">
-    <h2 class="text-l font-semibold mb-1">
+    <h2 class="text-xl font-semibold mb-1">
         <img src="pin-svgrepo-com.svg" alt="pin icon" class="w-4 h-4 inline-block mr-2 color-black dark:invert">
         Pinned posts
     </h2>

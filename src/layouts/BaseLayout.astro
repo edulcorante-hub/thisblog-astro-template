@@ -8,10 +8,33 @@ const { pageTitle, description, image, url, showTitle = true } = Astro.props; //
 
 <html lang="en">
   <head>
+{import.meta.env.PROD && (
+  <>
+    <!-- Google Tag Manager -->
+    <script is:inline>
+      {`
+        (function(w,d,s,l,i){
+          w[l]=w[l]||[];
+          w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+          var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),
+              dl=l!='dataLayer'?'&l='+l:'';
+          j.async=true;
+          j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+          f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5SF3HLP3');
+      `}
+    </script>
+    <!-- End Google Tag Manager -->
+  </>
+)}
+
+    
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/edulcorante_favicon.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    
     <MetaTags
       title={pageTitle}
       description={description}
@@ -23,6 +46,10 @@ const { pageTitle, description, image, url, showTitle = true } = Astro.props; //
   <body
     class="min-h-screen bg-slate-300 text-black dark:bg-zinc-700 dark:text-white transition-colors duration-200"
   >
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5SF3HLP3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <div
       class="bg-slate-100/50 dark:bg-zinc-900/50 max-w-4xl mx-auto my-1 p-4 shadow-lg border-gray-900 dark:border-gray-100 rounded-sm font-stretch-expanded leading-8"
     >

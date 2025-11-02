@@ -10,7 +10,7 @@ const blog = defineCollection({
       pubDate: z.date().default(() => new Date()),
       description: z.string(),
       author: z.string(),
-      lang: z.string().optional(), //temporary optional
+      lang: z.string(),
       image: z.object({
         url: z.string(),
         alt: z.string()
@@ -18,6 +18,7 @@ const blog = defineCollection({
       tags: z.array(z.string())
     })
 });
+
 const projects = defineCollection({
     loader: glob({ pattern: '**/[^_]*.md', base: "./src/content/projects" }),
     schema: z.object({
@@ -36,5 +37,6 @@ const projects = defineCollection({
       categories: z.array(z.string())
     })
 });
+
 // Esporta un singolo oggetto `collections` per registrare le tue raccolte
-export const collections = { blog, projects };
+export const collections = { blog, projects};

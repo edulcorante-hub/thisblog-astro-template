@@ -5,21 +5,23 @@ import TagsButton from "../../components/TagsButton.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const allPosts = (await getCollection("blog")).sort(
-    (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
-  );
+  const allPosts = (await getCollection("blog"))
+  // .filter(post => post.data.lang === "en")  // <-- filtro lang
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+
   const postsPerPage = 5;
   const totalPages = Math.ceil(allPosts.length / postsPerPage);
 
-  // Genera un array di oggetti { params: { page } }
   return Array.from({ length: totalPages }, (_, i) => ({
     params: { page: String(i + 1) },
   }));
 }
 
-const allPosts = (await getCollection("blog")).sort(
-  (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
-);
+const currentLang = "en";
+const allPosts = (await getCollection("blog"))
+  // .filter(post => post.data.lang === currentLang)   // filtro Lang
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+
 const postsPerPage = 5;
 
 const currentPage = Number(Astro.params.page);

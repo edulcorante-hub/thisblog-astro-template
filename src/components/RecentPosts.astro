@@ -4,14 +4,17 @@ import BlogPost from "./BlogPost.astro";
 
 const allPosts = await getCollection("blog");
 
+// const currentLang = "en"; 
+
 const recentPosts = allPosts
+//   .filter((post) => post.data.lang === currentLang) // filtro lang
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 2);
 
 ---
 
 <section class="pinned-post my-6">
-       <h2 class="text-l font-semibold mb-1">
+       <h2 class="text-xl font-semibold mb-1">
         <img src="time-sand-svgrepo-com.svg" alt="pin icon" class="w-4 h-4 inline-block mr-2 color-black dark:invert">
         Latest articles
     </h2>

@@ -4,9 +4,12 @@ import ThemeIcon from "./ThemeIcon.astro";
 import "../styles/global.css";
 ---
 
-<header >
-  <div class="flex items-center justify-between px-4 py-3">
-    <a href="/" class="flex items-center gap-3 no-underline font-stretch-expanded tracking-wider hover:no-underline hover:scale-105">
+<header id="main-header">
+  <div class="flex items-center justify-between px-4 py-3 relative">
+    <a
+      href="/"
+      class="flex items-center gap-3 no-underline font-stretch-expanded tracking-wider hover:no-underline hover:scale-105"
+    >
       <img
         src="/edulcorante_no_bg.png"
         alt="Edulcorante logo"
@@ -15,7 +18,9 @@ import "../styles/global.css";
       />
       <div class="leading-tight">
         <h1 class="font-bold text-2xl">Edulcorante</h1>
-        <h2 class="italic text-gray-600 dark:text-gray-400">Dev, decay, discover</h2>
+        <h2 class="italic text-gray-600 dark:text-gray-400">
+          Dev, decay, discover
+        </h2>
       </div>
     </a>
 
@@ -23,12 +28,46 @@ import "../styles/global.css";
       <Navigation />
     </nav>
 
-    <ThemeIcon />
+    <!-- L'icona che vogliamo rendere sticky -->
+    <div id="theme-icon-wrapper" class="relative">
+      <ThemeIcon />
+    </div>
   </div>
 
   <!-- mobile -->
-  <nav class="flex md:hidden justify-center gap-6 py-2 text-md font-medium border-t border-gray-500 dark:border-gray-700">
+  <nav
+    class="flex md:hidden justify-center gap-6 py-2 text-md font-medium border-t border-gray-500 dark:border-gray-700"
+  >
     <Navigation />
   </nav>
 </header>
 
+<style>
+.floating-icon {
+  position: fixed;
+  top: 1rem;
+  right: max(1rem, calc((100vw - 52rem) / 2)); /*container è max-w-4xl */
+  z-index: 100;
+  transition: all 0.3s ease-in-out;
+}
+</style>
+
+<script>
+  const header = document.querySelector("#main-header");
+  const iconWrapper = document.querySelector("#theme-icon-wrapper");
+
+  if (header && iconWrapper) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          iconWrapper.classList.add("floating-icon");
+        } else {
+          iconWrapper.classList.remove("floating-icon");
+        }
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(header);
+  }
+</script>

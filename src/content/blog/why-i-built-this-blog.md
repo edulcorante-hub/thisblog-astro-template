@@ -3,6 +3,7 @@ title: 'Why I built this Blog'
 pubDate: 2025-10-28
 description: 'Did you know? 33 is the right age to rise again.'
 author: 'Mick'
+lang: "en"
 image:
     url: 'https://res.cloudinary.com/dm9rcc9zs/image/upload/v1761689708/first_post_fcw5lf.jpg'
     alt: 'The Astro logo on a dark background with a pink glow.'
