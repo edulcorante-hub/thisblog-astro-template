@@ -49,8 +49,8 @@ Then open http://localhost:4321
 
 In src/pages/index.astro, you’ll find frontmatter constants such as:
 
-const pageTitle = "Edulcorante — A quiet place for thoughts and code";
-const description = "A journey in nature, technology, and small web components — by Mick.";
+const pageTitle = "This blog";
+const description = "Sample description";
 const url = "https://example.com";
 
 
