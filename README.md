@@ -1,43 +1,77 @@
-# Astro Starter Kit: Minimal
+# ThisBlog — Astro Template by Edulcorante
 
-```sh
-npm create astro@latest -- --template minimal
+A minimalist and atmospheric blog theme built with [Astro](https://astro.build/).  
+It’s designed to be calm, fast, and fully customizable — ideal for personal sites, journals, or creative projects.
+
+---
+
+## 🌿 Features
+
+- Minimal design focused on readability and calm aesthetics  
+- Support for Markdown and MDX posts  
+- Custom components for:
+  - `LastProject`
+  - `PinnedPost`
+  - `RandomQuote`
+  - `RecentPosts`
+  - `Floating dark mode toggle`
+- SEO-friendly with dynamic meta tags  
+- Responsive layout, lightweight CSS  
+- Easily adaptable for personal or thematic use  
+
+---
+
+## 🛠️ Getting Started
+
+### 1. Clone this repository
+
+```bash
+git clone https://github.com/yourusername/edulcorante.git
+cd edulcorante
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### 2. Install dependencies
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm install
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### 3. Run the development server
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```bash
+npm run dev
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+Then open http://localhost:4321
+ in your browser.
 
-## 🧞 Commands
+## ⚙️ Configuration
 
-All commands are run from the root of the project, from a terminal:
+In src/pages/index.astro, you’ll find frontmatter constants such as:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+const pageTitle = "Edulcorante — A quiet place for thoughts and code";
+const description = "A journey in nature, technology, and small web components — by Mick.";
+const url = "https://example.com";
 
-## 👀 Want to learn more?
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Replace these values with your own project information.
+
+## 🖋️ Content Structure
+
+/src/pages/ → main pages and layouts
+
+/src/components/ → Astro components (quotes, posts, etc.)
+
+/public/ → static assets
+
+/styles/ → global and modular stylesheets
+
+## 💡 Notes
+
+This template is intentionally neutral — no external dependencies or APIs.
+You can extend it with your own design system, MDX enhancements, or custom routing.
+
+### 📄 License
+
+MIT © 2025 Edulcorante
+
